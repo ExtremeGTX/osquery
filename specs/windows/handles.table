@@ -1,0 +1,12 @@
+table_name("handles")
+description("Details about handles acquired by running processes.")
+schema([
+    Column("UID", TEXT, "Handle Unique identifier", index=True),
+    Column("Name", TEXT, "Handle Name"),
+    Column("Type", TEXT, "Type of handle (a long list of types should be referenced here)"),
+    Column("PID", TEXT, "ID of owner process"),
+])
+implementation("system/windows/handles@genHandles")
+examples([
+  "select * from handles",
+])
